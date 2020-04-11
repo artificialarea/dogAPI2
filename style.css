@@ -5,6 +5,7 @@
 body {
   font-family: "Open Sans",
   sans-serif; 
+  font-size: 1em;
   /* font-size: 20px; */
   color: #444;
   /* text-align: center; */
@@ -29,7 +30,15 @@ a {
   font-weight: bold;
 }
 
+header a {
+  font-weight: normal;
+  color: #999;
+}
+
+hr {
+  margin-bottom: 40px;
+}
 p {
-  margin-bottom: 30px;
+  margin-top: 20px;
   color: #999;
 }
