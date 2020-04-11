@@ -21,10 +21,16 @@ h1 {
   margin: 40px 0;
 }
 
-input {
-  padding: 5px;
-  width: 40px;
-  margin-right: 20px;
+.select-css {
+  
+  display: inline-block;
+  color: red;
+  padding: 10px;
+  /* REFACTOR? 
+  padding ignored without these additonal attributes... BUT they also remove the up/down arrows, so will disregard for now. */
+  /* -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; */
 }
 
 button {
@@ -36,7 +42,7 @@ section {
 }
 
 img {
-  width: 100px;
+  width: 100%;
 }
 
 .error {
