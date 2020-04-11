@@ -26,6 +26,9 @@ function fetchDogImages(num) {
     fetch('https://dog.ceo/api/breeds/image/random')
       .then(response => response.json())
       .then(data => {
+        // Assignment 1: print results of image output.
+        console.log(data.message); 
+        // Assignment 2: render those images onto the DOM.
         renderDogImage(data.message);
       })
       .catch(err => console.log('error'));
@@ -44,13 +47,18 @@ function generateDogImage(data) {
 }
 
 function generateErrorMsg(data) {
-  console.log("generateErrorMsg ran.");
   if (data <= 0) {
+    // Assignment 1: print error msg. 
+    console.log("ERROR: Don't you want to see any dogs? Please submit another number...");
+    // Assignment 2: render this error msg onto the DOM.
     return `
       <p class="error">Don't you want to see any dogs? Please submit another number...</p>
     `;
 
   } else {
+    // Assignment 1: print error msg.
+    console.log("ERROR: We can only display up to 50 dog images. No more than that, I'm afraid. Please submit another number...");
+    // Assignment 2: render this error msg onto the DOM.
     return `
       <p class="error">We can only display up to 50 dog images. No more than that, I'm afraid. Please submit another number...</p>
     `;
