@@ -93,6 +93,9 @@ function renderDogImage(data) {
 
 // EVENT HANDLERS ////////////////////////////////////////////
 
+// ** REFACTOR? **
+// figure out way to register change 
+// if the selectedBreed is chosen immediately again
 function handleSubmission() {
   $('#dog-form').on('change', event => {
     const selectedBreed = $('#js-breed').val();
