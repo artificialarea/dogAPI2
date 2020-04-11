@@ -21,7 +21,7 @@ function init() {
 
 function fetchDogImages(num) {
   // fetch then render each dog/img *individually* to the DOM
-  // limiting the fetch promise to one image, not several
+  // thus limiting the fetch promise to one image at a time
   for (let i = 1; i <= num; i++) {
     fetch('https://dog.ceo/api/breeds/image/random')
       .then(response => response.json())
@@ -43,12 +43,26 @@ function generateDogImage(data) {
   `;
 }
 
+function generateErrorMsg(data) {
+  console.log("generateErrorMsg ran.");
+  if (data <= 0) {
+    return `
+      <p class="error">Don't you want to see any dogs? Please submit another number...</p>
+    `;
+
+  } else {
+    return `
+      <p class="error">We can only display up to 50 dog images. No more than that, I'm afraid. Please submit another number...</p>
+    `;
+  }
+}
+
 
 
 // RENDERING FUNCTIONS ///////////////////////////////////////
 
 function renderDogImage(data) {
-  // generateDogCollection HTML
+  // generate HTML to render
   const dogHTML = generateDogImage(data);
 
   // render HTML into DOM
@@ -56,8 +70,10 @@ function renderDogImage(data) {
   $('.js-image-gallery').removeClass('hidden');
 }
 
-function renderError() {
-  // if submission is outside parameters of 1-50, throw error
+function renderErrorMsg(data) {
+  const errMsg = generateErrorMsg(data);
+  $('.js-image-gallery').html(errMsg);
+  $('.js-image-gallery').removeClass('hidden');
 }
 
 
@@ -73,15 +89,13 @@ function handleSubmission() {
     // reset DOM, if a prior submission already occurred
     $('.js-image-gallery').html('');
     
-    if (numDogs <= 0 || numDogs > 50) {
-      // throw an error
-      // renderError() ?
+    if (numDogs <= 0 || numDogs > 50) { // limit to 50 images
+      renderErrorMsg(numDogs);
     } else {
       fetchDogImages(numDogs);
     }
   });
 }
-
 
 
 
