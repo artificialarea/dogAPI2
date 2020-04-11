@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+}
+
+main {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  font-size: 1em;
+  margin: 40px 0;
+}
+
+input {
+  padding: 5px;
+  width: 40px;
+  margin-right: 20px;
+}
+
+button {
+  padding: 5px 10px;
+}
+
+section {
+  margin: 40px 0;
+}
+
+img {
+  width: 100px;
+}
+
+.error {
+  color: red;
+}

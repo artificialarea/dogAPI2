@@ -3,42 +3,33 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1em;
+  font-family: "Open Sans",
+  sans-serif; 
+  /* font-size: 20px; */
+  color: #444;
+  /* text-align: center; */
+  line-height: 1.5;
+  /* margin: 20px; */
 }
 
-main {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.hidden {
-  display: none;
+.table-of-contents {
+  padding: 5%;
+  margin-top: 60px;
+  background-color: white;
+  text-align: left;
 }
 
 h1 {
+  weight: normal;
   font-size: 1em;
-  margin: 40px 0;
+  color: #999;
 }
 
-input {
-  padding: 5px;
-  width: 40px;
-  margin-right: 20px;
+a {
+  font-weight: bold;
 }
 
-button {
-  padding: 5px 10px;
-}
-
-section {
-  margin: 40px 0;
-}
-
-img {
-  width: 100px;
-}
-
-.error {
-  color: red;
+p {
+  margin-bottom: 30px;
+  color: #999;
 }
