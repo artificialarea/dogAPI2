@@ -27,7 +27,7 @@ function fetchDogImages(num) {
       .then(response => response.json())
       .then(data => {
         // Assignment 1: print results of image output.
-        console.log(data.message); 
+        console.log(`${i}: ${data.message}`); 
         // Assignment 2: render those images onto the DOM.
         renderDogImage(data.message);
       })
