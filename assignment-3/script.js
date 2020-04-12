@@ -6,6 +6,7 @@
 function init() {
   fetchAllBreeds();               // to populate dropdown menu
   handleSubmission();
+  handleRefresh();
 }
 
 //////////////////////////////////////////////////////////////
@@ -23,7 +24,6 @@ function fetchAllBreeds() {
   fetch('https://dog.ceo/api/breeds/list/all')
     .then(response => response.json())
     .then(data => {
-      // console.log(data.message); 
       renderDropdown(data.message);
     })
     .catch(err => console.log('error fetchAllBreeds'));
@@ -36,17 +36,20 @@ function fetchDogImage(breed) {
       // The good is news is fetch provides a simple ok flag that indicates whether an HTTP response’s status code is in the successful range or not. 
       // SOLUTION thanks to: https://www.tjvantoll.com/2015/09/13/fetch-and-errors/
       if (!response.ok) {
+        errorHideElements();
         throw Error(response.statusText);
       }
       return response.json();
     })
-    .then(data => {
-      console.log(data.message); 
-      renderDogImage(data.message);
-    })
+    .then(data => renderDogImage(data.message))
     .catch(err => console.log('ERROR: that breed doesn\'t exist'));
 }
 
+
+function errorHideElements() {
+  $('#dog-form button').addClass('hidden');
+  $('.js-image-gallery').addClass('hidden');
+}
 
 
 // TEMPLATE GENERATORS ///////////////////////////////////////
@@ -87,17 +90,23 @@ function renderDogImage(data) {
   // render HTML into DOM
   $('.js-image-gallery').html(dogHTML);
   $('.js-image-gallery').removeClass('hidden');
+  $('#dog-form button').removeClass('hidden');
 }
 
 
 
 // EVENT HANDLERS ////////////////////////////////////////////
 
-// ** REFACTOR? **
-// figure out way to register change 
-// if the selectedBreed is chosen immediately again
 function handleSubmission() {
   $('#dog-form').on('change', event => {
+    const selectedBreed = $('#js-breed').val();
+    fetchDogImage(selectedBreed);
+  });
+}
+
+function handleRefresh() {
+  $('#dog-form').submit( event => {
+    event.preventDefault();
     const selectedBreed = $('#js-breed').val();
     fetchDogImage(selectedBreed);
   });
