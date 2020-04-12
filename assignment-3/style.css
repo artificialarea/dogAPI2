@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  /* border: 1px solid red; */
 }
 
 body {
@@ -42,11 +43,16 @@ section {
 }
 
 img {
+  display: inline-block;
   width: 100%;
 }
 
 .transparent {
-  height: 1px;
+  height: 10px;
+  /* dunno why, but no height other than 100% 
+  stops the <main> 'glitch' between images 
+  ... and even then, there are still instances when it still glitches.
+  I give up =/ */ 
 }
 
 .error {
