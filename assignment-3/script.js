@@ -93,7 +93,7 @@ function renderDogImage(data) {
   const dogHTML = generateDogImage(data);
 
   // render HTML into DOM
-  $('.js-dog-image').attr("src", dogHTML);
+  $('.js-dog-image').attr('src', dogHTML);
   $('.js-dog-image').removeClass('hidden');
   $('#dog-form button').removeClass('hidden');
 }
