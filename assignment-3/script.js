@@ -70,8 +70,13 @@ function generateBreedOptions(breeds) {
 
 function generateDogImage(data) {
   return `
+    ${data}
+  `;
+  /*
+  return `
     <img src="${data}" class="">
   `;
+  */
 }
 
 
@@ -88,8 +93,8 @@ function renderDogImage(data) {
   const dogHTML = generateDogImage(data);
 
   // render HTML into DOM
-  $('.js-image-gallery').html(dogHTML);
-  $('.js-image-gallery').removeClass('hidden');
+  $('.js-dog-image').attr("src", dogHTML);
+  $('.js-dog-image').removeClass('hidden');
   $('#dog-form button').removeClass('hidden');
 }
 

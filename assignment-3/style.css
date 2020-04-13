@@ -49,6 +49,7 @@ img {
 }
 
 .transparent {
+  background-color: red;
   height: 10px;
   /* dunno why, but no height other than 100% 
   stops the <main> 'glitch' between images 
