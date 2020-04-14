@@ -102,9 +102,16 @@ function renderDogImage(data) {
 
 // EVENT HANDLERS ////////////////////////////////////////////
 
+// function handleSubmission() {
+//   $('#dog-form').on('change', event => {
+//     const selectedBreed = $('#js-breed').val();
+//     fetchDogImage(selectedBreed);
+//   });
+// }
+// ^^^^^^^^ replaced with more direct this event.target
 function handleSubmission() {
-  $('#dog-form').on('change', event => {
-    const selectedBreed = $('#js-breed').val();
+  $('select').on('change', event => {
+    const selectedBreed = $(event.target).val();
     fetchDogImage(selectedBreed);
   });
 }
